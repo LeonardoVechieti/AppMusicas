@@ -10,7 +10,7 @@ class Musica (nome: String, autor: String, duracao: String, url: String = "null"
     @ColumnInfo var nome: String = nome
     @ColumnInfo var autor: String = autor
     @ColumnInfo var duracao: String = duracao
-    @ColumnInfo var url: String = urlC
+    @ColumnInfo var url: String = url
 
 }
 
