@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AppMusicas</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="dura_o">Duração</string>
+    <string name="autor">Autor</string>
+    <string name="titulo_musica">Título da Música</string>
+</resources>

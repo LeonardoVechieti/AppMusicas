@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="4dp"
+    app:cardElevation="24dp"
+    android:clickable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_music"
+            android:src="@drawable/ic_music"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop"
+            />
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Nome da Música"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_music"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Autor desconhecido"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+        <TextView
+            android:id="@+id/txt_duration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="4min"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_author" />
+        <ImageView
+            android:id="@+id/img_delete"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_duration"
+            android:layout_marginEnd="16dp"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
