@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import com.example.appmusicas.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -34,6 +35,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onResume()
         val recycler = binding.recyclerMusics
 
+        val db = Room.databaseBuilder(
+            this,
+            MusicaDatabase::class.java,
+            "Musica.db"
+        ).allowMainThreadQueries().build()
 
         recycler.adapter = MusicasAdapter(album.getListMusicas(),this)
         recycler.layoutManager = LinearLayoutManager(this)
