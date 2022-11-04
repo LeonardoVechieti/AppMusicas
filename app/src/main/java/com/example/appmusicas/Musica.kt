@@ -1,11 +1,21 @@
 package com.example.appmusicas
 
-class Musica (nome: String, autor: String, duracao: String, url: String = "null"){
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-    val autor = autor
-    val nome = nome
-    val duracao = duracao
-    val url = url
+@Entity
+class Musica (nome: String, autor: String, duracao: String, url: String = "null"){
+    @PrimaryKey (autoGenerate = true) var id: Int = 0
+    @ColumnInfo var nome: String = nome
+    @ColumnInfo var autor: String = autor
+    @ColumnInfo var duracao: String = duracao
+    @ColumnInfo var url: String = url
+
 }
+
+
+
+
 
 
