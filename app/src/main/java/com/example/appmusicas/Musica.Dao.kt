@@ -11,14 +11,14 @@ import androidx.room.Update
 interface MusicaDao {
 
     @Query("SELECT * FROM Musica")
-    fun buscaChecklist(): List<Musica>
+    fun buscaMusica(): List<Musica>
 
     @Insert
-    fun insereChecklist(task: Musica)
+    fun insereMusica(task: Musica)
 
     @Delete
-    fun deleteChecklist(task: Musica)
+    fun deleteMusica(task: Musica)
 
     @Update
-    fun updateChecklist(task: Musica)
+    fun updateMusica(task: Musica)
 }

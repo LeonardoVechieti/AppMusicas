@@ -3,6 +3,8 @@ package com.example.appmusicas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.room.Room
 import com.example.appmusicas.databinding.ActivityAddNewMusicBinding
 
 class AddNewMusic : AppCompatActivity(), View.OnClickListener {
@@ -29,9 +31,16 @@ class AddNewMusic : AppCompatActivity(), View.OnClickListener {
         val autor = binding.editAuthorLayout.text.toString()
         val duracao = binding.editDurationLayout.text.toString()
         val url = "empty"
-        val musica = Musica(nome, autor, duracao, url)
-        val album = Album()
-        album.addMusica(musica)
+
+        val db = Room.databaseBuilder(
+            this,
+            MusicaDatabase::class.java,
+            "Musica.db"
+        ).allowMainThreadQueries().build()
+
+        val checkListDao = db.MusicaDao()
+        checkListDao.insereMusica(Musica(nome,autor,duracao,url))
+        Toast.makeText(this, "Criado com sucesso!", Toast.LENGTH_SHORT).show()
         finish()
     }
 }

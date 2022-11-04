@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 //import coil.load
@@ -54,6 +55,12 @@ class MusicasAdapter(private var musicas: ArrayList<Musica>, private var context
 
     fun deleteItem(item: Musica){
         this.musicas.remove(item)
+        var db = Room.databaseBuilder(
+            context, MusicaDatabase::class.java,
+            "Musica.db"
+        ).allowMainThreadQueries().build()
+        val dao = db.MusicaDao()
+        dao.deleteMusica(item)
         Toast.makeText(context, "Removida com sucesso",
             Toast.LENGTH_SHORT).show()
         this.notifyDataSetChanged()

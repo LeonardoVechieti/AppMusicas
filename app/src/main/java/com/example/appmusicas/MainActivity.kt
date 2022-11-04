@@ -18,6 +18,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         //remove action bar
         supportActionBar!!.hide()
+        val db = Room.databaseBuilder(
+            this,
+            MusicaDatabase::class.java,
+            "Musica.db"
+        ).allowMainThreadQueries().build()
 
 
 
@@ -41,7 +46,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             "Musica.db"
         ).allowMainThreadQueries().build()
 
-        recycler.adapter = MusicasAdapter(album.getListMusicas(),this)
+        val musicaDao = db.MusicaDao()
+
+        val musicas = musicaDao.buscaMusica()
+
+        recycler.adapter = MusicasAdapter(musicas as ArrayList<Musica>,this)
         recycler.layoutManager = LinearLayoutManager(this)
+
+        //recycler.adapter = MusicasAdapter(album.getListMusicas(),this)
+        //recycler.layoutManager = LinearLayoutManager(this)
     }
 }
